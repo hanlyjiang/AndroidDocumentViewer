@@ -2,6 +2,26 @@
 ## 如何使用？
 参考: [示例](app)
 
+TBS初始化(在Application中)：
+```java
+QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
+            @Override
+            public void onCoreInitFinished() {
+                Log.d(TAG, "onCoreInitFinished");
+            }
+
+            @Override
+            public void onViewInitFinished(boolean initResult) {
+                Log.e(TAG, "onViewInitFinished" + initResult);
+            }
+        });
+```
+
+查看文件：
+```
+Uri uri = Uri.fromFile(new File(filePath));
+FileViewer.viewFile(context,uri)
+```
 
 ## 注意事项
 1. office文件无法查看（TBS初始化失败），可以查看这个文档：[]()
