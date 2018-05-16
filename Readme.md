@@ -1,7 +1,14 @@
 
 ## 如何使用？
-* 参考: [示例](app)
-
+参考: [示例](app)
+* 复制`lib_fileviewer`模块，加入到project
+* App中build.gradle中加入以下配置：
+```groovy
+ndk {
+            // 此处必须设置为 armeabi ，TBS 文件浏览不支持其他类型
+            abiFilters "armeabi"
+    }
+```
 * TBS初始化(在Application中)：
 ```java
 QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
