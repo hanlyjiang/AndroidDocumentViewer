@@ -37,7 +37,7 @@ TBSFileViewActivity.viewFile(context, filePath);
 ```
 
 ## 注意事项
-1. office文件无法查看（TBS初始化失败），可以查看这个文档：[法加载x5内核的解决方案.doc](doc/%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BDx5%E5%86%85%E6%A0%B8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.doc)
+1. office文件无法查看（TBS初始化失败），可以查看这个文档：[无法加载x5内核的解决方案.doc](doc/无法加载x5内核的解决方案.doc)
 
 
 ## 使用到的库：
