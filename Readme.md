@@ -22,6 +22,19 @@ QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
 Uri uri = Uri.fromFile(new File(filePath));
 FileViewer.viewFile(context,uri)
 ```
+直接使用mupdf查看：
+```java
+FileViewer.viewPDFWithMuPDFByPath(Context context, String filePath)
+```
+或：
+```java
+FileViewer.startMuPDFActivityByUri(Context context, Uri documentUri)
+```
+
+直接使用TBS查看word文档：
+```
+TBSFileViewActivity.viewFile(context, filePath);
+```
 
 ## 注意事项
 1. office文件无法查看（TBS初始化失败），可以查看这个文档：[]()
