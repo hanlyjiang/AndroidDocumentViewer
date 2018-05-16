@@ -1,10 +1,50 @@
 
 ## 如何使用？
+参考: [示例](app)
+* 复制`lib_fileviewer`模块，加入到project
+* App中build.gradle中加入以下配置：
+```groovy
+ndk {
+            // 此处必须设置为 armeabi ，TBS 文件浏览不支持其他类型
+            abiFilters "armeabi"
+    }
+```
+* TBS初始化(在Application中)：
+```java
+QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
+            @Override
+            public void onCoreInitFinished() {
+                Log.d(TAG, "onCoreInitFinished");
+            }
 
+            @Override
+            public void onViewInitFinished(boolean initResult) {
+                Log.e(TAG, "onViewInitFinished" + initResult);
+            }
+        });
+```
 
+* **查看文件统一入口：**
+```
+Uri uri = Uri.fromFile(new File(filePath));
+FileViewer.viewFile(context,uri)
+```
+* **直接使用mupdf查看：**
+```java
+FileViewer.viewPDFWithMuPDFByPath(Context context, String filePath)
+```
+或：
+```java
+FileViewer.startMuPDFActivityByUri(Context context, Uri documentUri)
+```
+
+* **直接使用TBS查看word文档：**
+```
+TBSFileViewActivity.viewFile(context, filePath);
+```
 
 ## 注意事项
-1. office文件无法查看（TBS初始化失败），可以查看这个文档：[]()
+1. office文件无法查看（TBS初始化失败），可以查看这个文档：[无法加载x5内核的解决方案.doc](doc/无法加载x5内核的解决方案.doc)
 
 
 ## 使用到的库：
