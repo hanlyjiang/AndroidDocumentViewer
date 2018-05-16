@@ -1,5 +1,5 @@
 
-## 说明: 在 Android 上查看word，excel，powerpoint，pdf
+## 在 Android 上查看word，excel，powerpoint，pdf
 
 示例app效果：
 
