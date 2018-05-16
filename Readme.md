@@ -1,8 +1,8 @@
 
 ## 如何使用？
-参考: [示例](app)
+* 参考: [示例](app)
 
-TBS初始化(在Application中)：
+* TBS初始化(在Application中)：
 ```java
 QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
             @Override
