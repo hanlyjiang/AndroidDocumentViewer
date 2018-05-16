@@ -17,12 +17,12 @@ QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
         });
 ```
 
-查看文件：
+* **查看文件统一入口：**
 ```
 Uri uri = Uri.fromFile(new File(filePath));
 FileViewer.viewFile(context,uri)
 ```
-直接使用mupdf查看：
+* **直接使用mupdf查看：**
 ```java
 FileViewer.viewPDFWithMuPDFByPath(Context context, String filePath)
 ```
@@ -31,7 +31,7 @@ FileViewer.viewPDFWithMuPDFByPath(Context context, String filePath)
 FileViewer.startMuPDFActivityByUri(Context context, Uri documentUri)
 ```
 
-直接使用TBS查看word文档：
+* **直接使用TBS查看word文档：**
 ```
 TBSFileViewActivity.viewFile(context, filePath);
 ```
