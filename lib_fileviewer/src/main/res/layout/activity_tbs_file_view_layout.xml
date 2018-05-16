@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_rootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/ll_error_handle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="文件浏览器未准备好或不支持该文件类型，您可以："
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/common_divider_shape"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <TextView
+                android:id="@+id/btn_view_with_other_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ffffff"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="使用其他应用查看"
+                android:textColor="@color/action_bar_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/btn_retry_with_tbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ffffff"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="重试"
+                android:textColor="@color/action_bar_color"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">mupdf_jni</string>
+    <string name="cancel">Cancel</string>
+    <string name="cannot_open_document">Cannot open document</string>
+    <string name="cannot_open_document_Reason">Cannot open document: %1$s</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="enter_password">Enter password</string>
+    <string name="no_further_occurrences_found">No further occurrences found</string>
+    <string name="not_supported">Not supported</string>
+    <string name="okay">Okay</string>
+    <string name="search">Search&#x2026;</string>
+    <string name="searching_">Searching&#x2026;</string>
+    <string name="text_not_found">Text not found</string>
+    <string name="view_file">查看文件：</string>
+    <string name="file_not_exist">文件不存在</string>
+    <string name="file_not_recognized">无法识别文件</string>
+    <string name="choose_one_activity_to_open">请选择一个应用打开</string>
+</resources>

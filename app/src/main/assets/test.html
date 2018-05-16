@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>文档在线预览 速度最快的专业预览云服务提供商</title>
+    <meta name="keywords"
+          content="office在线预览,pdf在线预览,word在线预览,文档预览,excel在线预览,wps在线预览,office web apps，doc docx pdf xls xlsx ppt pptx wps 在线预览office"/>
+    <meta name="description"
+          content="提供office在线预览及PDF在线预览服务，支持Word文档在线预览、Excel在线预览、PowerPoint在线预览、WPS等Office文件在线预览，支持所有浏览器及移动设备Mobile预览，无需安装ActiveX控件，无需客户端部署即可实现办公文档在线预览。"/>
+    <meta name="viewport" content="width=1200"/>
+    <meta property="qc:admins" content="21635163661357523656375"/>
+
+</head>
+<body>
+
+<h1>Android 端Word PDF查看</h1>
+<h2>腾讯浏览服务</h2>
+<p>
+    <a href="https://x5.tencent.com/tbs/guide/demo.html#">https://x5.tencent.com/tbs/guide/demo.html#</a>
+</p>
+<pre class="editor-colors lang-java"><div class="line"><span
+        class="syntax--source syntax--java"><span
+        class="syntax--storage syntax--modifier syntax--java"><span>public</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--modifier syntax--java"><span>static</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--type syntax--primitive syntax--java"><span>int</span></span><span>&nbsp;</span><span
+        class="syntax--meta syntax--function-call syntax--java"><span
+        class="syntax--entity syntax--name syntax--function syntax--java"><span>openFileReader</span></span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--java"><span>(</span></span><span
+        class="syntax--storage syntax--type syntax--java"><span>Context</span></span><span>&nbsp;context</span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--type syntax--java"><span>String</span></span><span>&nbsp;filePath</span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--type syntax--java"><span>HashMap</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&lt;</span></span><span
+        class="syntax--storage syntax--type syntax--generic syntax--java"><span>String</span></span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--type syntax--generic syntax--java"><span>String</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&gt;</span></span><span>&nbsp;extraParams</span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span
+        class="syntax--storage syntax--type syntax--java"><span>ValueCallback</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&lt;</span></span><span
+        class="syntax--storage syntax--type syntax--generic syntax--java"><span>String</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&gt;</span></span><span>&nbsp;callback</span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--java"><span>)</span></span></span></span></div></pre>
+<h3>【接口说明】</h3>
+<ol>
+    <li>此方法在 Qbsdk 类下</li>
+    <li>调用之后，优先调起 QQ 浏览器打开文件。如果没有安装 QQ 浏览器，在 X5 内核下调起简版 QB 打开文 件。如果使用的系统内核，则调起文件阅读器弹框。</li>
+    <li>此方法暂时只支持本地文件打开，在线文件后期完善</li>
+</ol>
+<h3>【参数定义】</h3>
+<p><code>context</code>: 调起 miniqb 的 Activity 的 context。此参数只能是 activity 类型的 context，不能设置为
+    Application的 context。 </p>
+<p><code>filePath</code>: 文件路径。格式为 android 本地存储路径格式，例如: <code>/sdcard/Download/xxx.doc</code>. 不支持
+    <code>file:///</code> 格式。暂不支持在线文件。</p>
+<p><code>extraParams</code>:miniqb 的扩展功能。为非必填项，可传入 null 使用默认设置。其格式是一个 key 对应一个
+    value。在文件查看器的产品形态中，当前支持 的 key 包括:</p>
+<ul>
+    <li><code>local</code>: “true”表示是进入文件查看器，如果不设置或设置为“false”，则进入 miniqb 浏览器模式。不是必须设置项。</li>
+    <li><code>style</code>: “0”表示文件查看器使用默认的 UI 样式。“1”表示文件查看器使用微信的 UI 样式。不设置此 key或设置错误值，则为默认 UI 样式。
+    </li>
+    <li><code>topBarBgColor</code>: 定制文件查看器的顶部栏背景色。格式为“#xxxxxx”，例“#2CFC47”;不设置此 key 或设置错误值，则为默认 UI
+        样式。
+    </li>
+    <li><code>menuData</code>: 该参数用来定制文件右上角弹出菜单，可传入菜单项的 icon 的文本，用户点击菜单项后，sdk会通过
+        startActivity+intent 的方式回调。menuData 是 jsonObject 类型，结构格式如下:
+        <pre class="editor-colors lang-java"><div class="line"><span
+                class="syntax--source syntax--java"><span
+                class="syntax--storage syntax--modifier syntax--java"><span>public</span></span><span>&nbsp;</span><span
+                class="syntax--storage syntax--modifier syntax--java"><span>static</span></span><span>&nbsp;</span><span
+                class="syntax--storage syntax--modifier syntax--java"><span>final</span></span><span>&nbsp;</span><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span
+                class="syntax--storage syntax--type syntax--java"><span>String</span></span><span>&nbsp;</span><span
+                class="syntax--variable syntax--other syntax--definition syntax--java"><span>jsondata</span></span><span>&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--assignment syntax--java"><span>=</span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span>&nbsp;&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>{</span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span>&nbsp;&nbsp;pkgName:</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>com.example.thirdfile</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>,&nbsp;</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span>&nbsp;&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>className:</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>com.example.thirdfile.IntentActivity</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>,</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span>&nbsp;&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>thirdCtx:&nbsp;{pp:123},</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span>&nbsp;&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>menuItems:</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span>&nbsp;&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>[</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span>&nbsp;&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>{id:0,iconResId:</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--variable syntax--other syntax--object syntax--java"><span>R</span></span><span
+                class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+                class="syntax--variable syntax--other syntax--object syntax--property syntax--java"><span>drawable</span></span><span
+                class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+                class="syntax--variable syntax--other syntax--property syntax--java"><span>ic_launcher</span></span><span>&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>,text:</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>menu0</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>},</span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span>&nbsp;&nbsp;{id:1,iconResId:</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span>&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--variable syntax--other syntax--object syntax--java"><span>R</span></span><span
+                class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+                class="syntax--variable syntax--other syntax--object syntax--property syntax--java"><span>drawable</span></span><span
+                class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+                class="syntax--variable syntax--other syntax--property syntax--java"><span>bookmark_edit_icon</span></span><span>&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>,text:</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>menu1</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>},&nbsp;{id:2,iconResId:</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--variable syntax--other syntax--object syntax--java"><span>R</span></span><span
+                class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+                class="syntax--variable syntax--other syntax--object syntax--property syntax--java"><span>drawable</span></span><span
+                class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+                class="syntax--variable syntax--other syntax--property syntax--java"><span>bookmark_folder_icon</span></span><span>&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>,text:</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>菜单2</span><span
+                class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>}</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span>&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>]</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span>&nbsp;&nbsp;</span><span
+                class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span></span></span></span></div><div
+                class="line"><span class="syntax--source syntax--java"><span
+                class="syntax--meta syntax--definition syntax--variable syntax--java"><span
+                class="syntax--string syntax--quoted syntax--double syntax--java"><span>&nbsp;&nbsp;}</span><span
+                class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span><span
+                class="syntax--punctuation syntax--terminator syntax--java"><span>;</span></span></span></div></pre>
+    </li>
+    <li><p><code>pkgName</code> 和 className 是回调时的包名和类名。thirdCtx 是三方参数，需要是 jsonObject 类型，sdk
+        不会处理该参数，只是在菜单点击事件发生的时候原样 回传给调用方。menuItems 是 json 数组，表示菜单中的每一项。</p>
+    </li>
+    <li><p><code>ValueCallback</code>:提供 miniqb 打开/关闭时给调用方回调通知,以便应用层做相应处理。
+        在单独进程打开文件的场景中，回调参数出现如下字符时，表示可以关闭当前进程，避免内存占用。
+        openFileReader open in QB
+        filepath error
+        TbsReaderDialogClosed
+        default browser:
+        filepath error
+        fileReaderClosed</p>
+    </li>
+</ul>
+<h3>【返回说明】</h3>
+<p>1:用 QQ 浏览器打开<br>2:用 MiniQB 打开<br>3:调起阅读器弹框<br>1:filePath 为空 打开失败</p>
+<p>###【使用实例】</p>
+<pre class="editor-colors lang-java"><div class="line"><span
+        class="syntax--source syntax--java"><span
+        class="syntax--punctuation syntax--whitespace syntax--comment syntax--leading syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+        class="syntax--comment syntax--line syntax--double-slash syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--comment syntax--java"><span>//</span></span><span>params&nbsp;为定制参数&nbsp;非必须选项&nbsp;可以传&nbsp;null&nbsp;为默认设置&nbsp;public&nbsp;static&nbsp;final&nbsp;Stringjsondata&nbsp;=&nbsp;"{</span><span>&nbsp;</span></span></span></div><div
+        class="line"><span
+        class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;pkgName</span><span
+        class="syntax--keyword syntax--control syntax--ternary syntax--java"><span>:</span></span><span>\</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>com.example.thirdfile</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>,&nbsp;</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>className:</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>com.example.thirdfile.IntentActivity</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>,</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>thirdCtx:&nbsp;{pp:123},</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>menuItems:</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>[</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>{id:0,iconResId:</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>R</span></span><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--variable syntax--other syntax--object syntax--property syntax--java"><span>drawable</span></span><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--variable syntax--other syntax--property syntax--java"><span>ic_launcher</span></span><span>&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>,text:</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>menu0</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>},</span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;{id:1,iconResId:</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span>&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>R</span></span><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--variable syntax--other syntax--object syntax--property syntax--java"><span>drawable</span></span><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--variable syntax--other syntax--property syntax--java"><span>bookmark_edit_icon</span></span><span>&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>,text:</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>menu1</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>},&nbsp;{id:2,iconResId:</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>R</span></span><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--variable syntax--other syntax--object syntax--property syntax--java"><span>drawable</span></span><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--variable syntax--other syntax--property syntax--java"><span>bookmark_folder_icon</span></span><span>&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>,text:</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>菜单&nbsp;2</span><span
+        class="syntax--constant syntax--character syntax--escape syntax--java"><span>\"</span></span><span>}</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>]</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span>&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>+</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>&nbsp;}</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--punctuation syntax--terminator syntax--java"><span>;</span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--meta syntax--definition syntax--variable syntax--java"><span
+        class="syntax--storage syntax--type syntax--java"><span>HashMap</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&lt;</span></span><span
+        class="syntax--storage syntax--type syntax--generic syntax--java"><span>String</span></span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--type syntax--generic syntax--java"><span>String</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&gt;</span></span><span>&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--definition syntax--java"><span>params</span></span><span>&nbsp;</span><span
+        class="syntax--keyword syntax--operator syntax--assignment syntax--java"><span>=</span></span><span>&nbsp;</span><span
+        class="syntax--keyword syntax--control syntax--new syntax--java"><span>new</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--type syntax--java"><span>HashMap</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&lt;</span></span><span
+        class="syntax--storage syntax--type syntax--generic syntax--java"><span>String</span></span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;</span><span
+        class="syntax--storage syntax--type syntax--generic syntax--java"><span>String</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--angle syntax--java"><span>&gt;</span></span><span
+        class="syntax--punctuation syntax--bracket syntax--round syntax--java"><span>(</span><span>)</span></span></span><span
+        class="syntax--punctuation syntax--terminator syntax--java"><span>;</span></span><span>&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>params</span></span><span
+        class="syntax--meta syntax--method-call syntax--java"><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--entity syntax--name syntax--function syntax--java"><span>put</span></span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--java"><span>(</span></span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>style</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>1</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--java"><span>)</span></span></span><span
+        class="syntax--punctuation syntax--terminator syntax--java"><span>;</span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>params</span></span><span
+        class="syntax--meta syntax--method-call syntax--java"><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--entity syntax--name syntax--function syntax--java"><span>put</span></span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--java"><span>(</span></span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>local</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;</span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>true</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--java"><span>)</span></span></span><span
+        class="syntax--punctuation syntax--terminator syntax--java"><span>;</span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>params</span></span><span
+        class="syntax--meta syntax--method-call syntax--java"><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--entity syntax--name syntax--function syntax--java"><span>put</span></span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--java"><span>(</span></span><span
+        class="syntax--string syntax--quoted syntax--double syntax--java"><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--java"><span>"</span></span><span>memuData</span><span
+        class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--java"><span>"</span></span></span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;jsondata</span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--java"><span>)</span></span></span><span
+        class="syntax--punctuation syntax--terminator syntax--java"><span>;</span></span></span></div><div
+        class="line"><span class="syntax--source syntax--java"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>QbSdk</span></span><span
+        class="syntax--meta syntax--method-call syntax--java"><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--entity syntax--name syntax--function syntax--java"><span>openFileReader</span></span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round syntax--java"><span>(</span></span><span>ctx</span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>”</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>/</span></span><span>sdcard</span><span
+        class="syntax--keyword syntax--operator syntax--arithmetic syntax--java"><span>/</span></span><span
+        class="syntax--variable syntax--other syntax--object syntax--java"><span>xxx</span></span><span
+        class="syntax--punctuation syntax--separator syntax--period syntax--java"><span>.</span></span><span
+        class="syntax--variable syntax--other syntax--property syntax--java"><span>doc</span></span><span>”</span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>&nbsp;params</span><span
+        class="syntax--punctuation syntax--separator syntax--delimiter syntax--java"><span>,</span></span><span>callback</span><span
+        class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round syntax--java"><span>)</span></span></span><span
+        class="syntax--punctuation syntax--terminator syntax--java"><span>;</span></span></span></div></pre>
+
+
+</body>
+</html>
+
+

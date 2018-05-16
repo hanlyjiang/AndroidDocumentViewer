@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewAnimator
+        android:id="@+id/switcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:id="@+id/mainBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C0202020"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ib_go_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="#00ffffff"
+                android:padding="10dp"
+                android:src="@drawable/ic_go_back" />
+
+            <TextView
+                android:id="@+id/docNameText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="16dp" />
+
+            <ImageButton
+                android:id="@+id/linkButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_link_white_24dp" />
+
+            <ImageButton
+                android:id="@+id/searchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_search_white_24dp" />
+
+            <ImageButton
+                android:id="@+id/outlineButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_toc_white_24dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolbar"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/searchClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_close_white_24dp" />
+
+            <EditText
+                android:id="@+id/searchText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="@string/search"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="#a0a0a0"
+                android:textColorHint="#a0a0a0"
+                android:textSize="16dp" />
+
+            <ImageButton
+                android:id="@+id/searchBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_chevron_left_white_24dp" />
+
+            <ImageButton
+                android:id="@+id/searchForward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:src="@drawable/ic_chevron_right_white_24dp" />
+
+        </LinearLayout>
+
+    </ViewAnimator>
+
+    <RelativeLayout
+        android:id="@+id/lowerButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <SeekBar
+            android:id="@+id/pageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="0dp"
+            android:background="@color/toolbar"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="12dp"
+            android:progressDrawable="@drawable/seek_line"
+            android:thumb="@drawable/seek_thumb" />
+
+        <TextView
+            android:id="@+id/pageNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/pageSlider"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/page_indicator"
+            android:textColor="@android:color/white"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

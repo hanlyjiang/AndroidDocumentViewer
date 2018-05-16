@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/tbs_webView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_open_pdf_with_mupdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MuPdf打开PDF文件" />
+
+        <Button
+            android:id="@+id/btn_open_pdf_with_tbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TBSFileView打开PDF" />
+
+        <Button
+            android:id="@+id/btn_open_doc_with_tbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TBSFileView打开docx文件" />
+
+        <Button
+            android:id="@+id/btn_open_ppt_with_tbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TBSFileView打开ppt文件" />
+
+        <Button
+            android:id="@+id/btn_open_excel_with_tbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TBSFileView打开Excel文件" />
+
+    </LinearLayout>
+
+</RelativeLayout>
