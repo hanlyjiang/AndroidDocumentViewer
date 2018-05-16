@@ -1,8 +1,8 @@
 
-## 说明
-> 在 Android 上查看word，excel，powerpoint，pdf
+## 说明: 在 Android 上查看word，excel，powerpoint，pdf
 
 示例app效果：
+
 ![示例app效果](doc/fileviewer-demo-screenshots.gif)
 
 ## 如何使用？
