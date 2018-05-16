@@ -1,4 +1,11 @@
 
+## 说明
+> 在 Android 上查看word，excel，powerpoint，pdf
+
+示例app效果：
+
+[示例app效果](doc/fileviewer-demo-screenshots.gif)
+
 ## 如何使用？
 参考: [示例](app)
 * 复制`lib_fileviewer`模块，加入到project
