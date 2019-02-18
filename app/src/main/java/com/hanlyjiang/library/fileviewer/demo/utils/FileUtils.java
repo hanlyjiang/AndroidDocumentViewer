@@ -26,12 +26,12 @@ public class FileUtils {
     }
 
     public static void copyFile(InputStream in, String newPath) {
+        new File(newPath).getParentFile().mkdirs();
         try (
                 InputStream inStream = in;
                 FileOutputStream fs = new FileOutputStream(newPath)
         ) {
             int byteread;
-            new File(newPath).getParentFile().mkdirs();
             byte[] buffer = new byte[4096];
             while ((byteread = inStream.read(buffer)) != -1) {
                 fs.write(buffer, 0, byteread);

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.hanlyjiang.library.fileviewer.FileViewer;
@@ -93,6 +94,7 @@ public class FileViewDemoMainActivity extends AppCompatActivity {
     }
 
     private void openFileWithTbs(String filePath) {
+        Log.d(TAG,"Open File: " + filePath);
         TBSFileViewActivity.viewFile(this, filePath);
     }
 
