@@ -26,7 +26,6 @@ public class FileViewDemoMainActivity extends AppCompatActivity {
 
     private static final int RC_WRITE_STOREGE = 1;
     private static final String TAG = "TBSInit";
-    private static final String TBS_ZIP_FILE_PATH = "/sdcard/app_tbs.zip";
     protected WebView tbsWebView;
 
     @Override
@@ -52,18 +51,6 @@ public class FileViewDemoMainActivity extends AppCompatActivity {
                             .setPositiveButtonText("确认")
                             .setNegativeButtonText("取消")
                             .build());
-        } else {
-//            RunnableUtils.executeOnWorkThread(() -> {
-//                Log.d(TAG, "Start Copy TBS zip files");
-//                boolean unzip = false;
-//                try {
-//                    unzip = ZipUtils.UnZipFolder(TBS_ZIP_FILE_PATH,
-//                            getApplicationContext().getFilesDir().getParentFile().getAbsolutePath() + File.separator);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//                Log.d(TAG, "End Copy TBS zip files: result = " + unzip);
-//            });
         }
     }
 
@@ -94,7 +81,7 @@ public class FileViewDemoMainActivity extends AppCompatActivity {
     }
 
     private void openFileWithTbs(String filePath) {
-        Log.d(TAG,"Open File: " + filePath);
+        Log.d(TAG, "Open File: " + filePath);
         TBSFileViewActivity.viewFile(this, filePath);
     }
 

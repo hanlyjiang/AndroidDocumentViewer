@@ -6,8 +6,10 @@ import android.os.Message;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -17,17 +19,25 @@ import java.util.concurrent.Future;
  */
 public class RunnableUtils {
 
-    private static final ExecutorService EXECUTOR = Executors.newFixedThreadPool(6);
-    private static UIHandler sUIHandler = new UIHandler(Looper.getMainLooper());
+    private static final ExecutorService EXECUTOR = getExecutorService();
+
+    private static ExecutorService getExecutorService() {
+        if (EXECUTOR == null) {
+            return new ThreadPoolExecutor(2, 2, 60,
+                    TimeUnit.SECONDS, new LinkedBlockingDeque<>(), r -> new Thread(r, "RunnableUtils"));
+        }
+        return EXECUTOR;
+    }
+
+    private static UiHandler sUiHandler = new UiHandler(Looper.getMainLooper());
 
     /**
      * 在UI线程中执行一个Runnable
      *
      * @param task 要执行的任务
      */
-    public static void postUI(Runnable task) {
-//        AndroidSchedulers.mainThread().scheduleDirect(task);
-        postUIWork(task);  // 不使用RXJava 的实现
+    public static void postUi(Runnable task) {
+        postUiWork(task);
     }
 
     /**
@@ -36,9 +46,8 @@ public class RunnableUtils {
      * @param task  要执行的任务
      * @param delay 延迟（MILLISECONDS） 1000ms =  1s
      */
-    public static void postUI(Runnable task, int delay) {
-//        AndroidSchedulers.mainThread().scheduleDirect(task,delay, TimeUnit.MILLISECONDS);
-        postUIWork(task, delay);    //不使用RXJava 的实现
+    public static void postUi(Runnable task, int delay) {
+        postUiWork(task, delay);
     }
 
     /**
@@ -57,30 +66,30 @@ public class RunnableUtils {
      * @param task 要执行的任务
      */
     public static void executeOnWorkThread(Runnable task) {
-//        Schedulers.from(EXECUTOR).scheduleDirect(task);
         EXECUTOR.execute(task);
     }
 
-    private static void postUIWork(Runnable runnable, int delay) {
-        Message msg = sUIHandler.obtainMessage();
+
+    private static void postUiWork(Runnable runnable, int delay) {
+        Message msg = sUiHandler.obtainMessage();
         msg.obj = runnable;
         msg.arg1 = delay;
-        if (sUIHandler == null) {
-            sUIHandler = new UIHandler(Looper.getMainLooper());
+        if (sUiHandler == null) {
+            sUiHandler = new UiHandler(Looper.getMainLooper());
         }
-        sUIHandler.sendMessage(msg);
+        sUiHandler.sendMessage(msg);
     }
 
-    private static void postUIWork(Runnable runnable) {
-        if (sUIHandler == null) {
-            sUIHandler = new UIHandler(Looper.getMainLooper());
+    private static void postUiWork(Runnable runnable) {
+        if (sUiHandler == null) {
+            sUiHandler = new UiHandler(Looper.getMainLooper());
         }
-        sUIHandler.post(runnable);
+        sUiHandler.post(runnable);
     }
 
-    private static class UIHandler extends Handler {
+    private static class UiHandler extends Handler {
 
-        UIHandler(Looper looper) {
+        UiHandler(Looper looper) {
             super(looper);
         }
 

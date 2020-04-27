@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidDocumentViewer.iml" filepath="$PROJECT_DIR$/AndroidDocumentViewer.iml" group="AndroidDocumentViewer" />
+      <module fileurl="file://$PROJECT_DIR$/app/AndroidDocumentViewer-app.iml" filepath="$PROJECT_DIR$/app/AndroidDocumentViewer-app.iml" group="AndroidDocumentViewer/app" />
+      <module fileurl="file://$PROJECT_DIR$/lib_fileviewer/AndroidDocumentViewer-lib_fileviewer.iml" filepath="$PROJECT_DIR$/lib_fileviewer/AndroidDocumentViewer-lib_fileviewer.iml" group="AndroidDocumentViewer/lib_fileviewer" />
       <module fileurl="file://$PROJECT_DIR$/FileViewerDemo-opensource.iml" filepath="$PROJECT_DIR$/FileViewerDemo-opensource.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_fileviewer/lib_fileviewer.iml" filepath="$PROJECT_DIR$/lib_fileviewer/lib_fileviewer.iml" />

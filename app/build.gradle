@@ -3,15 +3,14 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.geostar.library.fileviewer.demo"
+        applicationId "com.hanlyjiang.github.fileviewer.demo"
         minSdkVersion 19
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
-            // 此处必须设置为 armeabi ，TBS 文件浏览不支持其他类型
-            abiFilters "armeabi"
+            abiFilters "armeabi", "armeabi-v7a"
         }
     }
 
