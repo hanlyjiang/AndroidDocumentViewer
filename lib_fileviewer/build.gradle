@@ -23,11 +23,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    api 'com.tencent.tbs.tbssdk:sdk:43903'
+    api files("libs/tbs_sdk_thirdapp_v4.3.0.265_44165_sharewithdownloadwithfile_withoutGame_obfs_20220303_184913.jar")
+    api files("libs/lib_mupdf_1.11.1.jar")
+//    api 'com.tencent.tbs.tbssdk:sdk:43903'
 }
